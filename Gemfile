@@ -17,6 +17,9 @@ gem 'rails_12factor', group: :production
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
 # Use SCSS for stylesheets
 gem 'bcrypt'
 gem 'sass-rails', '~> 4.0.3'
