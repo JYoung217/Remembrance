@@ -105,6 +105,9 @@ GEM
     omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    omnicontacts (0.3.4)
+      json
+      rack
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -209,6 +212,7 @@ DEPENDENCIES
   less-rails
   omniauth
   omniauth-facebook (= 1.4.0)
+  omnicontacts
   pg
   rails (= 4.1.4)
   rails_12factor

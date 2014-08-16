@@ -15,8 +15,18 @@ class Admin::MemorialsController < ApplicationController
 	end
 
 	def show
-
+		redirect_to '/contacts/gmail'
 	end
+
+	def contacts_callback
+	  @contacts = request.env['omnicontacts.contacts']
+	  @user = request.env['omnicontacts.user']
+	  puts "List of contacts of #{user[:name]} obtained from #{params['gmail']}:"
+	  @contacts.each do |contact|
+	    puts "Contact found: name => #{contact[:name]}, email => #{contact[:email]}"
+	  end
+	end
+
 
 	def edit
 		@memorial = Memorial.find params[:id]
@@ -35,9 +45,6 @@ class Admin::MemorialsController < ApplicationController
 		def memorial_params
 			params.require(:memorial).permit(:deceased_name, :date_of_birth, :date_of_death, :obituary_description, :service_description)
 		end
-	# def show
-	# 	@memorial = Memorial.find(params[:id])
-	# end
 
 
 end

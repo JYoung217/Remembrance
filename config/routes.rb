@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :destroy]
 
-
   namespace :admin do
     resources :memorials, except: [:index]
   end
@@ -31,4 +30,7 @@ Rails.application.routes.draw do
 
   get 'admin_memorials', to: 'admin/memorials#show'
   get 'new_with_email', to: 'sessions#new_with_email'
+
+
+  match "/contacts/gmail/callback", to: "admin/memorials#show", via: [:get, :post]
 end
