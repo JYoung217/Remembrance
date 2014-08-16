@@ -1,0 +1,23 @@
+<div class="show-comment">
+  <p><%= @post.status %></p>
+  <p>
+	  <span>Created at: <%= @post.created_at.localtime.strftime("%e %b %Y - %I:%M %p") %></span> |
+	  <span></span>
+	  <span>Last update: <%= @post.updated_at.localtime.strftime("%e %b %Y - %I:%M %p") %></span> |
+	  <span></span>
+	  <span>
+	  by <%= link_to @post.poster.first_name + " " + @post.poster.last_name, @post.poster %>
+	  </span>
+	</p>
+
+	<% @post.photos.all.each do |photo| %>
+	  <%= image_tag(photo.url) %>
+	<% end %>
+	<div class="comment">
+		<% @post.comments.each do |comment| %>
+			<p>User: <%= comment.commenter.first_name %> <%= comment.commenter.last_name %></p>
+			<p>Comment: <span><%= comment.text %></span></p>
+			<p>Created at: <%= comment.created_at.localtime.strftime("%e %b %Y - %I:%M %p") %></p>
+		<% end %>
+	</div>
+</div>

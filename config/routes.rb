@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     get :attended, :created
   end
 
-  resources :memorials, only: [:index, :show]
+  resources :memorials, only: [:index, :show] do
+    resources :posts, except: :index do
+      resources :comments, only: [:new, :create, :index]
+    end
+  end
 
   scope :info, :controller => 'info' do
     get :about, :contact, :team
@@ -19,9 +23,9 @@ Rails.application.routes.draw do
     resources :memorials, except: [:index]
   end
 
-  resources :posts, except: [:index]
-  resources :photos, except: [:index, :edit, :update]
-  resources :comments, except: [:index]
+  resources :photos, except: [:index, :edit, :update] do
+    resources :comments, except: [:index]
+  end
 
   match 'auth/:provider/callback', to: 'facebook#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
