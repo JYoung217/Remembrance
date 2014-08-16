@@ -236,7 +236,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.6.5)
-  bcrypt
+  bcrypt (~> 3.1.0)
   capybara (~> 2.4.1)
   carrierwave
   coffee-rails (~> 4.0.0)
