@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   def create
     current_user
     @user = current_user
-    @author = Post.find(params[:author_id])
     @memorial = Memorial.find(params[:memorial_id])
     @new_post = @memorial.posts.create(author_id: current_user.id, text: params[:post][:text])
     # redirect_to memorial_path(@author)
