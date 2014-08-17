@@ -1,0 +1,6 @@
+
+  <% @memorial.posts.each do |f| %>
+      <article class="post_item"><%= f.text %><br>
+      <span><%= f.created_at%></span>
+      </article>
+  <% end %>
