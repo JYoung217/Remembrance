@@ -1,0 +1,17 @@
+<h1 class="title-card">Created memorials</h1>
+<table>
+<!-- 	<thead>
+		<tr>
+			<th>Deceased name</th>
+			<th>Memorial date</th>
+		</tr>
+	</thead> -->
+	<tbody>
+		<% @created_memorials.each do |memorial| %>
+			<tr>
+				<td> <%= link_to memorial.deceased_name, memorial_path(memorial.id) %> </td>
+				<td> <%= memorial.date_of_death.strftime("%B %d, %Y") %> </td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

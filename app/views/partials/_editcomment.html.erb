@@ -1,0 +1,14 @@
+<div class="edit-comment">
+  <h3>Comment</h3>
+  <%= form_for @comment, url: {action: "update"} do |f| %>
+    <div class="form-group">
+      <%= f.label :text %><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_area :text, class: "form-control", placeholder: "Enter Comment" %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>

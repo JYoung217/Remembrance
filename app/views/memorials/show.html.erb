@@ -1,0 +1,32 @@
+<div class="deceased-page">
+  <h1 class="title-card"><%= @memorial.deceased_name %></h1>
+
+  <div id="passing-dates">
+    <span>Date of Birth: <%= @memorial.date_of_birth.strftime("%B %d, %Y") %></span> | 
+    <span>Date of Passing: <%= @memorial.date_of_death.strftime("%B %d, %Y") %></span>
+  </div>
+
+  <% if @current_user.id == @memorial.moderator_id %>
+    <div class="btn-group btn-group-lg" id="ctrl-memorial-nav">
+      <ul class="pager">
+        <li><%= link_to "Edit Memorial Page", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default" %></li>
+        <li><%= link_to "Delete Memorial Page", { controller: "admin/memorials", action: "destroy", id: @memorial.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %></li>
+        <li><%= link_to "Invite Guests", new_admin_memorial_guest_path(@memorial), id: "new-guest", class: "btn btn-default btn-sm" %></li>
+      </ul>
+    </div>
+  <% end %>
+
+  <p><%= @memorial.obituary_description %></p>
+  <p><%= @memorial.service_description %></p>
+</div>
+<div class="memories">
+  <h2>Memories</h2>
+  <div class="btn-group btn-group-lg" id="ctrl-memorial-nav">
+    <ul class="pager">
+      <li><%= link_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %></li>
+      <li><%= link_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %></li>
+    </ul>
+  </div>
+  <%= render 'partials/memorialpost' %>
+  <%= render 'partials/memorialphoto' %>
+</div>

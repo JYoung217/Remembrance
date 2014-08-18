@@ -1,0 +1,25 @@
+<% @memorial.photos.each do |photo| %>
+  <span><%= image_tag(photo.url) %></span>
+  <p><%= photo.created_at.strftime("%B %d, %Y") %></p>
+  <article class="photo_item"><%= photo.caption %><br>
+  <p><%= photo.uploader.name %></p>
+
+  <%= link_to "Add a comment", new_memorial_photo_comment_path(@memorial, photo), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+  <hr>
+  <div class="comment">
+    <% photo.comments.each do |comment| %>
+    <h6>Name of commenter: <%= comment.commenter.name %></h6>
+    <h6>Comment: <%= comment.text %></h6>
+    <%= link_to "Edit your comment", edit_memorial_photo_comment_path(memorial_id: @memorial.id, photo_id: photo.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
+    <%= button_to "Delete photo", { controller: "comments", action: "destroy", memorial_id: @memorial.id, photo_id: photo.id, id: comment.id },
+                            method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+    <hr>
+    <% end %>
+  </div>
+
+  <% if @current_user.id == photo.uploader.id %>
+  	<%= button_to "Delete photo", { controller: "photos", action: "destroy", memorial_id: @memorial.id, id: photo.id },
+                            method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+  <% end %>
+  </article>
+<% end %>

@@ -1,0 +1,61 @@
+$titles: 80%;
+
+.deceased-page {
+	margin: 0 60px;
+	padding: 20px 0 0 0;
+	height: 100%;
+}
+
+.title-card {
+	width: $titles;
+	margin: auto;
+	padding: auto;
+	text-align: center;
+}
+
+#passing-dates {
+	width: $titles;
+	margin: 20px auto;
+	padding: auto;
+	text-align: center;
+}
+
+.memories {
+	h2 {
+		margin: 20px auto;
+		padding: auto;
+		width: $titles;
+		text-align: center;
+	}
+}
+
+#ctrl-memorial-nav {
+	margin: 0 auto;
+	width: 100%;
+	ul {
+		list-style-type: none;
+		li {
+			display: inline;
+			text-align: center;
+		}
+	}
+}
+
+.memorial-posts {
+	width: 80%;
+	margin: 10px auto;
+	height: 80%;
+}
+
+.memorial-post {
+	border: 1px solid white;
+}
+
+.container {
+	height: 100%;
+}
+
+.center-links {
+	width: 80%;
+	margin: 0 auto;
+}

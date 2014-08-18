@@ -1,0 +1,10 @@
+<h1>Available Guests</h1>
+<%= link_to "Invite By Email", admin_memorial_invite_new_with_email_path, id: "invite-email" %>
+
+<%= form_for @enlist_guests, url: {action: "create"}, role: "form" do |f| %>
+	<%= f.collection_check_boxes(:guest, @users, :id, :name) do |b| %>
+		<li><%= b.label { b.check_box + b.text } %></li>
+	<% end %>
+<%= submit_tag("Invite!") %>
+	
+<% end %> 

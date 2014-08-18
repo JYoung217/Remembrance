@@ -1,0 +1,10 @@
+<%= form_tag(:url => admin_memorial_invite_new_with_email_path) do %>
+  <%= hidden_field :memorial_id, :value => @memorial.id %>
+  <div class="form-group">
+	  <%= label_tag :email %><br>
+	</div>
+	<div class="form-group">
+	  <%= text_area :email, "email", {class: "form-control", placeholder: "Enter Emails (Separate by commas)"} %>
+	</div>
+  <%= submit_tag 'Send' %>
+<% end %>

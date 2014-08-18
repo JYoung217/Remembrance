@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>In Memorium</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Custom Fonts -->
+  <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="/">
+          <i class="fa fa-play-circle"></i>  <span class="light">In</span> Memory
+        </a>
+        
+      </div>
+    <% if current_user %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Create new memorial", new_admin_memorial_path, id: "new_memorial" %></li>
+        <li><%= link_to "Created memorials", created_path, id: "new_memorial" %></li>
+        <li><%= link_to "Attended memorials", attended_path, id: "new_memorial" %></li>
+        <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+      </ul>
+    <% end %>
+    </div>
+  </nav>
+
+  <%= yield %>
+
+  <div id="footer">
+    <div class="footer-container">
+      <a href="/info/about">About</a> | <a href="/info/contact">Contact</a> | <a href="/info/team">Team</a><br>
+      <div class="copyright">Copyright In Memorium, LLC. All Rights Reserved</div>
+    </div>
+  </div>
+
+</body>
+</html>

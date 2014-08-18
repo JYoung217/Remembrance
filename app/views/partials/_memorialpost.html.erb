@@ -1,0 +1,27 @@
+<div class="memorial-posts">
+  <% @memorial.posts.each do |post| %>
+    <div class="memorial-post">
+      <p><%= post.text %></p>
+      
+      <p>Name: <%= post.author.name %> | <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
+
+      <%= link_to "Add a comment", new_memorial_post_comment_path(@memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+      <div class="comment">
+        <% post.comments.each do |comment| %>
+        <h6>Name of commenter: <%= comment.commenter.name %></h6>
+        <h6>Comment: <%= comment.text %></h6>
+        <%= link_to "Edit your comment", edit_memorial_post_comment_path(memorial_id: @memorial.id, post_id: post.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
+        <%= button_to "Delete Post", { controller: "comments", action: "destroy", memorial_id: @memorial.id, post_id: post.id, id: comment.id },
+                                method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+        <% end %>
+      </div>
+
+      <% if @current_user.id == post.author.id %>
+      	<%= link_to 'Edit your post', edit_memorial_post_path(@memorial, post), id: "edit-memorial-post", class: "btn btn-default btn-sm" %>
+
+      	<%= button_to "Delete Post", { controller: "posts", action: "destroy", memorial_id: @memorial.id, id: post.id },
+                                method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
