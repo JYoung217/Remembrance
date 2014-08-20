@@ -1,3 +1,4 @@
+<div class = "upload-new-photo">
 <%= form_for @photo, url: {action: "create"} do |f| %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">
@@ -32,4 +33,9 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  <div id="loading">
+
+  </div>
 <% end %>
+</div>

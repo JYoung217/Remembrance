@@ -25,6 +25,20 @@ body {
 	width: 80%;
 }
 
+#loading {
+  position: fixed;
+  height: 13px;
+  width: 212px;
+  margin-left: 10%;
+  margin-top: 10%;
+  background-image: url('http://s27.postimg.org/64srd7bvn/loading.gif');
+  visibility: hidden;
+}
+
+.upload-new-photo{
+	
+}
+
 .link, a {
 cursor: pointer;
 color: #5291cb;

@@ -36,6 +36,8 @@ $(function(){
     });
   });
 
+
+
   // $('#new-memorial-comment').on('click', function(event){
   //   event.preventDefault();
   //   // var postUrl = $(this).attr('href');
@@ -121,7 +123,7 @@ $(function(){
       }
     });
   });
-
+});
 // ============= AJAX FOR MODERATION =================
 
 
@@ -144,6 +146,13 @@ $(function(){
   //   });
   // });
 
-
-
+// ================== LOADING PAGE =====================
+$( document ).ready(function() {
+  $(".new_photo").on('submit', function(event) {
+      $("body :not(#loading)").css("opacity", "0.6");
+      $('#loading').css("opacity", "1");
+      $('#loading').css("visibility", "visible");
+  });
 });
+
+// });

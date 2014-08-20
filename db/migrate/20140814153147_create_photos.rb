@@ -7,6 +7,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :url
       t.string :caption
       t.boolean :profile, default: false
+      
 
       t.timestamps
     end
